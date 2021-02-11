@@ -12,12 +12,14 @@ import { component } from "vue/types/umd";
 @Component
 export default class PFooter extends Vue {
   @Prop()
-  fotterLabel?: string;
+  footerLabel?: string;
 }
 </script>
 <style>
 footer {
-  backgroud-color: black;
+  background-color: black;
   color: white;
+  padding-bottom: 5px;
+  text-align: center;
 }
 </style>

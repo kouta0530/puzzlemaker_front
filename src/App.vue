@@ -6,16 +6,19 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
+    <p-footer footerLabel="saki" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import PHeader from "@/components/PHeader.vue";
+import PFooter from "@/components/PFooter.vue";
 
 @Component({
   components: {
     PHeader,
+    PFooter,
   },
 })
 export default class App extends Vue {}
