@@ -1,6 +1,8 @@
 <template>
   <header>
-    <h1>{{ headerLabel }}</h1>
+    <router-link to="/" class="router-link"
+      ><h1>{{ headerLabel }}</h1></router-link
+    >
     <nav>
       <ol>
         <li>マイページ</li>
@@ -38,5 +40,10 @@ li {
 }
 li:hover {
   color: orange;
+}
+
+.router-link {
+  text-decoration: none;
+  color: black;
 }
 </style>

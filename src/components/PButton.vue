@@ -5,6 +5,7 @@
     :style="{
       'background-color': bgColor,
       color: color,
+      'min-width': '200px',
     }"
   >
     {{ text }}

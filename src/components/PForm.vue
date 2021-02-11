@@ -12,7 +12,7 @@
     <template v-for="item in items">
       <div :key="item.id" class="form-item">
         <label :style="{ 'margin-right': '10px' }">{{ item.label }}</label>
-        <input type="item.type" />
+        <input :type="item.type" :name="item.label" />
       </div>
     </template>
     <div>
@@ -62,6 +62,7 @@ export default class PForm extends Vue {
   margin: 10px auto;
   border: solid 2px black;
   padding: 10px;
+  text-align: center;
 }
 
 .form-item {

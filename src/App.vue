@@ -1,10 +1,6 @@
 <template>
   <div id="app">
     <p-header headerLabel="puzzleMaker" />
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view />
     <p-footer footerLabel="saki" />
   </div>
