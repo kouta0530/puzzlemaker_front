@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <p-header headerLabel="puzzleMaker" />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -8,12 +9,23 @@
   </div>
 </template>
 
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import PHeader from "@/components/PHeader.vue";
+
+@Component({
+  components: {
+    PHeader,
+  },
+})
+export default class App extends Vue {}
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 
