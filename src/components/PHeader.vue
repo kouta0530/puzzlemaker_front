@@ -10,7 +10,9 @@
           <li>ログアウト</li>
         </template>
         <template v-else>
-          <li>ログイン</li>
+          <router-link to="/login" class="router-link"
+            ><li>ログイン</li></router-link
+          >
         </template>
       </ol>
     </nav>

@@ -8,3 +8,7 @@ export async function registUser(
 ): Promise<string> {
   return Axios.post("/signup", userData);
 }
+
+export async function login(userData: UserRegistrationData): Promise<boolean> {
+  return Axios.post("/login", userData);
+}
