@@ -1,7 +1,7 @@
 <template>
   <button
     class="test"
-    @click="click"
+    @click="push"
     :style="{
       'background-color': bgColor,
       color: color,
@@ -26,9 +26,9 @@ export default class PButton extends Vue {
   @Prop({ default: "green" })
   bgColor?: string;
 
-  @Emit("click")
-  click() {
-    alert("click");
+  @Emit("push")
+  push() {
+    return "push";
   }
 
   /*

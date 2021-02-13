@@ -13,15 +13,18 @@
         formLabel="新規登録"
         :items="items"
         :style="{ 'marign-right': '20%' }"
+        @sendForm="sendForm"
       ></p-form>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-import PForm from "@/components/PForm.vue";
+import { Vue, Component } from "vue-property-decorator";
 import { Formset } from "@/models/Formset";
+import PForm from "@/components/PForm.vue";
 import PButton from "@/components/PButton.vue";
+import { registUser } from "@/api/userAPI";
+import UserRegistrationData from "@/models/UserRegistrationData";
 
 @Component({
   components: {
@@ -35,8 +38,21 @@ export default class Index extends Vue {
     { id: 2, label: "password", type: "password" },
   ];
 
+  public user: UserRegistrationData = {
+    email: "test@mail.com",
+    password: "a",
+  };
+
   get src() {
     return require("../assets/logo.png");
+  }
+
+  async signup() {
+    const res = await registUser(this.user);
+  }
+
+  sendForm(data: { email: string; password: string }) {
+    this.signup();
   }
 }
 </script>
