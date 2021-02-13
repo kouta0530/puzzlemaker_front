@@ -1,22 +1,19 @@
 <template>
-  <form
-    @submit.prevent="sendForm"
-    action="action"
-    method="method"
-    class="form-frame"
-  >
+  <form @submit.prevent="" action="action" method="method" class="form-frame">
     <label :style="{ 'margin-top': '20px' }">{{ formLabel }}</label>
     <template v-if="error">
       <p>{{ error }}</p>
     </template>
-    <template v-for="item in items">
-      <div :key="item.id" class="form-item">
-        <label :style="{ 'margin-right': '10px' }">{{ item.label }}</label>
-        <input type="item.type" />
-      </div>
-    </template>
+    <div class="form-item">
+      <label :style="{ 'margin-right': '10px' }">email</label>
+      <input type="email" v-model="email" />
+    </div>
+    <div class="form-item">
+      <label :style="{ 'margin-right': '10px' }">password</label>
+      <input type="password" v-model="password" />
+    </div>
     <div>
-      <p-button :text="formLabel" class="submit" />
+      <p-button :text="formLabel" class="submit" @push="sendForm" />
     </div>
   </form>
 </template>
@@ -40,17 +37,19 @@ export default class PForm extends Vue {
   @Prop({ default: "POST" })
   method!: string;
 
-  @Prop()
+  @Prop({ default: [] })
   items?: Formset[];
 
   @Prop({ default: false })
   error?: boolean;
 
-  //@Emit("submit")
-  sendForm(event: Event) {
-    console.log(event);
-    return event;
+  @Emit("sendForm")
+  sendForm() {
+    return { email: this.email, password: this.password };
   }
+
+  public email = "";
+  public password = "";
 }
 </script>
 <style>
@@ -62,6 +61,7 @@ export default class PForm extends Vue {
   margin: 10px auto;
   border: solid 2px black;
   padding: 10px;
+  text-align: center;
 }
 
 .form-item {
