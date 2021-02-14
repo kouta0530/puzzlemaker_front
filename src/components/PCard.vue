@@ -1,12 +1,12 @@
 <template>
   <div class="card" :style="{ 'background-color': color }">
     <p class="card-label">{{ cardLabel }}</p>
-    <img :src="url" alt="alt" />
+    <img :src="src" alt="alt" />
     <p-button :text="label" :click="click"></p-button>
   </div>
 </template>
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from "vue-property-decorator";
+import { Vue, Component, Prop, Emit, Watch } from "vue-property-decorator";
 import PButton from "@/components/PButton.vue";
 
 @Component({
@@ -15,9 +15,9 @@ import PButton from "@/components/PButton.vue";
   },
 })
 export default class PCard extends Vue {
-  get url() {
-    return require("../assets/logo.png");
-  }
+  @Prop({ default: "" })
+  src?: string;
+
   @Prop()
   cardLabel?: string;
 
@@ -54,5 +54,6 @@ img {
   width: 80%;
   height: 150px;
   border-radius: 3px;
+  margin-bottom: 10px;
 }
 </style>

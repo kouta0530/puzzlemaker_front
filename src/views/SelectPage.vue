@@ -3,15 +3,18 @@
     <template v-for="item in items">
       <p-card
         :key="item.key"
-        :cardLabel="item.cardLabel"
-        :label="item.label"
+        :cardLabel="item.name"
+        :src="item.url"
+        label="遊ぶ"
       ></p-card>
     </template>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import PCard from "@/components/PCard.vue";
+import Puzzle from "@/models/Puzzle";
+import { getPuzzle } from "@/api/puzzleAPI";
 
 @Component({
   components: {
@@ -19,28 +22,12 @@ import PCard from "@/components/PCard.vue";
   },
 })
 export default class SelectPage extends Vue {
-  items = [
-    {
-      key: 1,
-      cardLabel: "testCardLabel",
-      label: "test",
-    },
-    {
-      key: 2,
-      cardLabel: "testCardLabel",
-      label: "test",
-    },
-    {
-      key: 3,
-      cardLabel: "testCardLabel",
-      label: "test",
-    },
-    {
-      key: 4,
-      cardLabel: "testCardLabel",
-      label: "test",
-    },
-  ];
+  public items?: Puzzle[] = [];
+
+  async created() {
+    this.items = await getPuzzle();
+    console.log(this.items);
+  }
 }
 </script>
 <style>
