@@ -5,7 +5,9 @@
       <p>自分の好きな画像でパズルができるアプリです。</p>
       <div class="buttons">
         <p-button color="white" text="投稿する" />
-        <p-button color="white" text="遊ぶ" />
+        <router-link to="/select"
+          ><p-button color="white" text="遊ぶ"
+        /></router-link>
       </div>
     </div>
     <div>
