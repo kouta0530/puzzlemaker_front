@@ -2,7 +2,7 @@
   <div class="card" :style="{ 'background-color': color }">
     <p class="card-label">{{ cardLabel }}</p>
     <img :src="src" alt="alt" />
-    <p-button :text="label" :click="click"></p-button>
+    <p-button :text="label" @push="play"></p-button>
   </div>
 </template>
 <script lang="ts">
@@ -15,6 +15,9 @@ import PButton from "@/components/PButton.vue";
   },
 })
 export default class PCard extends Vue {
+  @Prop()
+  id?: string;
+
   @Prop({ default: "" })
   src?: string;
 
@@ -30,9 +33,9 @@ export default class PCard extends Vue {
   @Prop({ default: "bisque" })
   color?: string;
 
-  @Emit("click")
-  click(value: any) {
-    return value;
+  @Emit("play")
+  play() {
+    return this.id;
   }
 }
 </script>

@@ -3,8 +3,10 @@
     <template v-for="item in items">
       <p-card
         :key="item.key"
+        :id="item.id"
         :cardLabel="item.name"
         :src="item.url"
+        @play="moveToPlayPage"
         label="遊ぶ"
       ></p-card>
     </template>
@@ -27,6 +29,10 @@ export default class SelectPage extends Vue {
   async created() {
     this.items = await getPuzzle();
     console.log(this.items);
+  }
+
+  moveToPlayPage(value: string) {
+    this.$router.push({ name: `play`, params: { id: value } });
   }
 }
 </script>

@@ -32,6 +32,11 @@ const routes: Array<RouteConfig> = [
     name: "Select",
     component: SelectPage,
   },
+  {
+    path: "/play/:id",
+    name: "play",
+    component: Index,
+  },
 ];
 
 const router = new VueRouter({
