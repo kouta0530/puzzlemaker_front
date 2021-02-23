@@ -6,6 +6,7 @@
       width: size,
       height: size,
     }"
+    class="pannel"
   ></div>
 </template>
 <script lang="ts">
@@ -39,3 +40,8 @@ export default class PPanel extends Vue {
   }
 }
 </script>
+<style>
+.pannel {
+  border: 1px solid black;
+}
+</style>

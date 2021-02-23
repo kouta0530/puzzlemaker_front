@@ -25,13 +25,15 @@ import { Vue, Component } from "vue-property-decorator";
 import { Formset } from "@/models/Formset";
 import PForm from "@/components/PForm.vue";
 import PButton from "@/components/PButton.vue";
-import { registUser } from "@/api/userAPI";
+import userAPI from "@/api/userAPI";
 import UserRegistrationData from "@/models/UserRegistrationData";
+import PPiece from "@/components/PPiece.vue";
 
 @Component({
   components: {
     PForm,
     PButton,
+    PPiece,
   },
 })
 export default class Index extends Vue {
@@ -50,7 +52,7 @@ export default class Index extends Vue {
   }
 
   async signup() {
-    const res = await registUser(this.user);
+    const res = await userAPI.registUser(this.user);
   }
 
   sendForm(data: { email: string; password: string }) {

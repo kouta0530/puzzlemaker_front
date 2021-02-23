@@ -1,9 +1,9 @@
 <template>
   <div class="puzzle-list">
-    <template v-for="item in items">
+    <template v-for="(item, key) in items">
       <p-card
-        :key="item.key"
-        :id="item.id"
+        :key="key"
+        :id="key"
         :cardLabel="item.name"
         :src="item.url"
         @play="moveToPlayPage"
@@ -16,7 +16,7 @@
 import { Vue, Component } from "vue-property-decorator";
 import PCard from "@/components/PCard.vue";
 import Puzzle from "@/models/Puzzle";
-import { getPuzzle } from "@/api/puzzleAPI";
+import puzzleAPI from "@/api/puzzleAPI";
 
 @Component({
   components: {
@@ -27,7 +27,7 @@ export default class SelectPage extends Vue {
   public items?: Puzzle[] = [];
 
   async created() {
-    this.items = await getPuzzle();
+    this.items = await puzzleAPI.getPuzzle();
     console.log(this.items);
   }
 

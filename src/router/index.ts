@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Index from "@/views/Index.vue";
 import LoginPage from "@/views/LoginPage.vue";
 import SelectPage from "@/views/SelectPage.vue";
+import PlayPage from "@/views/PlayPage.vue";
 
 Vue.use(VueRouter);
 
@@ -35,7 +36,7 @@ const routes: Array<RouteConfig> = [
   {
     path: "/play/:id",
     name: "play",
-    component: Index,
+    component: PlayPage,
   },
 ];
 
